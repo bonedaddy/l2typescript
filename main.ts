@@ -10,7 +10,13 @@ color = 'purple';
 // ${ expr }
 let phrase: string = `This is a color ${color}`
 console.log(phrase);
-
+// arrays
+let words: string[] = ["hello", "world"];
+console.log(words);
+// tuple like array, but fixed number of elements with types that aren't the same
+let mytuple: [string, number];
+mytuple = ["hello", 1];
+console.log(mytuple);
 
 // function declaration
 function greeter(person: string) {
