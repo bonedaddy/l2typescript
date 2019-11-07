@@ -31,7 +31,8 @@ class HalfLifeCalc {
         }
         let message: string = "days until nondetectable plasma concentration: " + ((count*this.interval)/24);
         console.log(message);
-        //document.body.textContent = message; 
+        // comment if running as nodejs module
+        document.body.textContent = message; 
     }
 }
 
@@ -45,16 +46,23 @@ class ThcCalc extends HalfLifeCalc {
 }
 
 // grab the MG_AMOUNT env variable
-let strMg: string = process.env.MG_AMOUNT;
+// uncomment if running as nodejs script
+// let strMg: string = process.env.MG_AMOUNT;
+/*
 if (strMg == undefined) {
-    process.exit.call;
+    strMg = "1200"
 }
+*/
 
+// comment if running as nodejs script
+let strMg: string = "1200";
 // cast to unknown type
 let unknownMg: unknown = (<unknown>strMg);
 // cast to number type
 let mg: number = (unknownMg as number);
+// how many horus passed in a single interval
 let intervalHour: number = 12;
-
+// declare the extended class
 let calculator = new ThcCalc(intervalHour, mg);
+// run the calculator
 calculator.start();
