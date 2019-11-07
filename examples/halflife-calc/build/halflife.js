@@ -26,10 +26,7 @@ class HalfLifeCalc {
         }
         let message = "days until nondetectable plasma concentration: " + ((count * this.interval) / 24);
         console.log(message);
-        if (window.isNaN) {
-            return;
-        }
-        document.body.textContent = message;
+        //document.body.textContent = message; 
     }
 }
 class ThcCalc extends HalfLifeCalc {
@@ -40,7 +37,15 @@ class ThcCalc extends HalfLifeCalc {
         super.calculate();
     }
 }
-let mg = 100;
+// grab the MG_AMOUNT env variable
+let strMg = process.env.MG_AMOUNT;
+if (strMg == undefined) {
+    process.exit.call;
+}
+// cast to unknown type
+let unknownMg = strMg;
+// cast to number type
+let mg = unknownMg;
 let intervalHour = 12;
 let calculator = new ThcCalc(intervalHour, mg);
 calculator.start();

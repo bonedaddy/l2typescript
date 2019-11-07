@@ -33,8 +33,6 @@ explanation:
 
 You can then simply run `tsc` and everything will be taken care of
 
-
-
-# Files
+## Files
 
 Similar to `.jsx` you can use `.tsx` for usnig JSX in TypeScript
