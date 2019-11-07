@@ -15,10 +15,15 @@ var ipfs = ipfsClient({
     }
 });
 
+let resval: any;
+
 ipfs.dag.get(exampleCID, function (err, response) {
     if (err) {
         console.error(err);
         return
     }
+    resval = response.value;
     console.log(response);
 })
+
+console.log(resval);
